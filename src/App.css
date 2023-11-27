@@ -1,42 +1,475 @@
+@import url("https://fonts.cdnfonts.com/css/star-wars");
+
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  cursor: url("https://cur.cursors-4u.net/others/images1/oth24.gif"), auto;
+}
+
+body {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  object-fit: cover;
+}
+
+.container {
+  display: grid;
+  grid-template:
+    "header     nav           nav" 300px
+    "left-menu  main-content  main-content" 1fr
+    "footer     footer        footer" 300px/
+    200px 1fr 1fr;
+}
+
+.star {
+  display: grid;
+  grid-area: header;
+  color: black;
+  text-shadow: -1px -1px 0 #f7f737, 1px -1px 0 #f7f737, -1px 1px 0 #f7f737,
+    1px 1px 0 #f7f737;
+  font-size: 100px;
+  margin: 20px 0px 0px 40px;
+  font-family: "Star Wars", sans-serif;
+}
+
+.wars {
+  display: grid;
+  grid-area: header;
+  color: black;
+  text-shadow: -1px -1px 0 #f7f737, 1px -1px 0 #f7f737, -1px 1px 0 #f7f737,
+    1px 1px 0 #f7f737;
+  font-size: 100px;
+  margin: -10px 0px 0px 15px;
+  font-family: "Star Wars", sans-serif;
+}
+
+nav {
+  display: grid;
+  grid-area: nav;
+  grid-template-columns: repeat(6, auto);
+  gap: 40px;
+  justify-content: start;
+  margin-top: 10vh;
+  margin-left: 30vw;
+}
+
+nav.active{
+  border-bottom: 3px solid red;
+}
+
+.home,
+.films,
+.characters,
+.planets,
+.favourite,
+.signup {
+  font-size: 25px;
+  color: #f7f737;
+  text-decoration: none;
+  list-style: none;
+  font-family: "Star Wars", sans-serif;
+  text-shadow: 5px 5px  black;
+}
+
+
+.home:hover {
+  color: red;
+  cursor: url("http://www.rw-designer.com/cursor-view/38900.png"), auto;
+}
+
+.films:hover {
+  color: red;
+  cursor: url("http://www.rw-designer.com/cursor-view/38900.png"), auto;
+}
+
+.characters:hover {
+  color: red;
+  cursor: url("http://www.rw-designer.com/cursor-view/38900.png"), auto;
+}
+
+.planets:hover {
+  color: red;
+  cursor: url("http://www.rw-designer.com/cursor-view/38900.png"), auto;
+}
+
+.favourite:hover {
+  color: red;
+  cursor: url("http://www.rw-designer.com/cursor-view/38900.png"), auto;
+}
+
+.signup:hover{
+  color: red;
+  cursor: url("http://www.rw-designer.com/cursor-view/38900.png"), auto;
+}
+
+a:hover {
+  cursor: url("http://www.rw-designer.com/cursor-view/38900.png"), auto;
+}
+
+.home.active{
+  color: red;
+}
+
+.films.active{
+ color: red;
+}
+
+.characters.active{
+  color: red;
+}
+.planets.active{
+  color: red;
+}
+
+.favourite.active{
+  color: red;
+}
+
+.signup.active{
+  color: red;
+}
+
+
+.homepage-content {
+  display: grid;
+  grid-area: main-content;
+  place-items: center;
   text-align: center;
+  border: solid 2px #f7f737;
+  border-radius: 20px;
+  padding: 20px;
+  margin-top: -600px;
+  margin-left: 680px;
+  margin-right: -1000px;
+  background: rgb(0, 0, 0, 0.8);
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.h1 {
+  color: #f7f737;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.lorem {
+  color: white;
+  font-weight: bold;
+}
+
+.left-tab {
+  display: grid;
+  grid-area: left-menu;
+  grid-template-columns: auto;
+  gap: 10px;
+  align-items: start;
+  padding: 20px;
+  margin-top: 355px;
+  margin-left: 20px;
+}
+
+/* films page */
+.loading {
+  display: grid;
+  place-items: center; 
+  position: fixed; 
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%);
+  width: max-content; 
+  padding: 20px; 
+  border: 3px solid #f7f737; 
+  background-color: rgba(0, 0, 0, 0.8); 
+  color: #f7f737; 
+  font-family: "Star Wars", sans-serif;
+  font-size: 24px;
+  text-align: center;
+  z-index: 1000; 
+}
+
+.background-films {
+  background-image: url("https://i.etsystatic.com/14990737/r/il/59231e/1256070126/il_fullxfull.1256070126_cr3m.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+.film-container {
+  display: grid;
+  grid-template-columns: repeat(3, 400px);
+  grid-template-rows: repeat(3, 480px); 
+  gap: 20px;
+  justify-content: center; 
+  align-items: start; 
+  padding: 20px;
+  margin: -700px 0px 0px 1000px; 
+  max-width: 100%; 
+}
+
+.each-film {
+  background: rgba(0, 0, 0, 0.6);
+  border: #f7f737 3px solid;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.main-content {
+  display: grid;
+  justify-content: center; 
+  align-items: start; 
+  padding: 20px;
+}
+
+.film-title,
+.director,
+.episode,
+.release-date,
+.url {
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.film-title {
+  color: #f7f737;
+  font-family: "Star Wars", sans-serif;
+}
+
+.film-image {
+  border: 1px red solid;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+.favourite-button {
+  display: block;
+  font-weight: bold;
+  color: white;
+  border: 1px solid #f7f737;
+  background: rgb(0, 0, 0, 0.6);
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-top: 10px;
+  cursor: pointer;
+  margin-left: 120px;
+}
+
+
+/* characters */
+.content-container {
+  display: grid;
+  grid-template-columns: auto 1fr; 
+  align-items: start; 
+  gap: 20px; 
+  padding: 20px;
+  margin-top: -700px; 
+  margin-left: 70px;
+}
+
+.person-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.person {
+  display: grid;
+  background: rgba(0, 0, 0, 0.6);
+  border: #f7f737 3px solid;
+  border-radius: 20px;
+  padding: 20px;
+  gap: 10px;
+  justify-items: center;
+  align-content: start; 
+  line-height: 1.5;
+}
+
+.favourite-button-characters {
+  font-weight: bold;
+  color: white;
+  border: 1px solid #f7f737;
+  background: rgb(0, 0, 0, 0.6);
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-top: 10px;
+  cursor: pointer;
+  justify-self: center;
+}
+
+
+.filters {
+  display: grid;
+  width: 250px; 
+  padding: 20px; 
+  border: 3px solid #f7f737; 
+  border-radius: 20px; 
+  background: rgba(0, 0, 0, 0.6); 
+  margin-left: -70px;
+}
+
+.gender-filter{
+  color: white;
+}
+
+.weight-filter-color{
+  color: white;
+}
+
+.person-title,
+.gender,
+.height,
+.birth-year,
+.mass {
+  display: grid; 
+  grid-template-columns: 1fr 250px; 
+  justify-items: start; 
+  column-gap: 5px;
+  width: 80%;
+  color: white;
+}
+
+.name,
+.gender-color,
+.height-color,
+.birth-year-color,
+.mass-color {
+  color: #f7f737;
+}
+
+
+/*  planets */
+.planet-container {
+  display: grid;
+  grid-template-columns: repeat(4, 400px);
+  gap: 20px;
+  justify-content: center; 
+  align-items: start; 
+  padding: 20px;
+  margin: -700px 0px 0px 1000px; 
+  max-width: 100%; 
+}
+
+.planet {
+  background: rgba(0, 0, 0, 0.6);
+  border: #f7f737 3px solid;
+  border-radius: 20px;
+  padding: 20px;
+  display: grid;
+  gap: 10px;
+  justify-items: center;
+}
+
+.planet-name-color,
+.population-color,
+.terrain-color,
+.climate-color,
+.planet-film-color{
+  color: #f7f737;
+}
+
+.planet-name,
+.planet-population,
+.planet-terrain, 
+.planet-climate,
+.planet-film{
+  display: grid; 
+  grid-template-columns: 1fr 250px; 
+  justify-items: start; 
+  column-gap: 5px;
+  width: 80%;
+  color: white;
+}
+
+  .favourite-button-planet {
+    font-weight: bold;
+    color: white;
+    border: 1px solid #f7f737;
+    background: rgb(0, 0, 0, 0.6);
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    justify-self: center;
   }
-  to {
-    transform: rotate(360deg);
-  }
+
+
+/* sign upsection*/
+.signup-form {
+  background: rgba(0, 0, 0, 0.8); 
+  padding: 20px 35px 20px 20px;
+  border-radius: 10px;
+  color: #fff;
+  max-width: 400px;
+  z-index: 10; 
+  margin-top: -730px;
+  border: 2px solid #f7f737;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.signup-title {
+  text-align: center;
+  color: #ffe81f; 
+  font-family: 'Star Jedi', sans-serif; 
 }
 
-.card {
-  padding: 2em;
+.form-group {
+  margin-bottom: 15px;
 }
 
-.read-the-docs {
-  color: #888;
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+.form-group button {
+  width: 100%;
+  padding: 10px;
+  background-color: #ffe81f;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.form-group button:hover {
+  background-color: #ffd700;
+}
+
+.image-div{
+  display: grid;
+  grid-area: main-content;
+  grid-template-columns: repeat(2, 500px); 
+  column-gap: 100px;
+  margin: -400px 0px 0px 480px;
+}
+
+/* favourite section*/
+.favourite-container{
+  display: grid;
+  grid-template-columns: repeat(3, 400px);
+  grid-template-rows: repeat(3, 480px); 
+  gap: 20px;
+  justify-content: center; 
+  align-items: start; 
+  padding: 20px;
+  margin: -700px 0px 0px 1000px; 
+}
+
+.remove{
+  display: block;
+  font-weight: bold;
+  color: white;
+  border: 1px solid #f7f737;
+  background: rgb(0, 0, 0, 0.6);
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-top: 10px;
+  cursor: pointer;
+  justify-self: center;
 }
