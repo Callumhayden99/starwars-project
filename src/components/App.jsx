@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import Header from "./Header";
-import LeftMenu from "./Leftmenu";
+import LeftMenu from "./LeftMenu";
 import HeaderNav from "./HeaderNav";
 import HomePageContent from "./HomePageContent";
 import Film from "./Film";
