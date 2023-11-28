@@ -1,38 +1,31 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 function Signup() {
-  const [userDetails, setUserDetails] = useState({
-    username: localStorage.getItem("username") || "",
-    email: localStorage.getItem("email") || "",
-    password: localStorage.getItem("password") || "",
-  });
-
-  useEffect(() => {
-    const storedDetails = {
-      username: localStorage.getItem("username"),
-      email: localStorage.getItem("email"),
-      password: localStorage.getItem("password"),
-    };
-
-    if (storedDetails.username || storedDetails.email) {
-      setUserDetails(storedDetails);
-    }
-  }, []);
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setUserDetails((prevDetails) => ({
-      ...prevDetails,
-      [name]: value,
-    }));
+ 
+  const getLocalStorageValue = (key, defaultValue) => {
+    return localStorage.getItem(key) || defaultValue;
   };
 
+  
+  const [userDetails, setUserDetails] = useState({
+    username: getLocalStorageValue("username", ""),
+    email: getLocalStorageValue("email", ""),
+    password: getLocalStorageValue("password", ""),
+  });
+
+  
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setUserDetails((prevDetails) => {
+      const newDetails = { ...prevDetails, [name]: value };
+      localStorage.setItem(name, value); 
+      return newDetails;
+    });
+  };
+
+ 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    for (const [key, value] of Object.entries(userDetails)) {
-      localStorage.setItem(key, value);
-    }
     alert("Details Saved!");
   };
 
@@ -82,8 +75,7 @@ function Signup() {
           </div>
         </form>
       </div>
-
-<div className="image-div">
+      <div className="image-div">
       <img
         className="join-empire"
         src="https://www.imperialofficer.com/forum/uploads/monthly_2021_03/large.JoinEmpireBecomeStormtrooper.jpg.ff3e04084b813c40d956d8c844a51fb1.jpg"
